@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const LeftSideBar = () => {
     const [activeItem, setActiveItem] = useState(1);
     const navigate = useNavigate();
@@ -27,13 +28,12 @@ const LeftSideBar = () => {
 
         if (index === 2) {
             navigate('/library')
-
         }
     }
 
     return (
         <>
-            <div className='logo'>
+            <div className='logo' onClick={() => navigate('/')}>
                 <img src={logo} alt='...' />
             </div>
             <div className='menu'>

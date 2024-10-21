@@ -14,4 +14,9 @@ const getDetailSong = (songId) => {
 
 }
 
-export { getHome, getDetailSong, getSong }
+const getDetailPlayList = (plId) => {
+    return axios.get(`api/detailplaylist?id=${plId}`);
+
+}
+
+export { getHome, getDetailSong, getSong, getDetailPlayList }

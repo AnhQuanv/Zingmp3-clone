@@ -1,0 +1,14 @@
+.title-album-song {
+    display: flex;
+    border: 1px solid red;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+
+    span {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+    }
+}

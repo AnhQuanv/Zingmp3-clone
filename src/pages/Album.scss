@@ -1,0 +1,54 @@
+.album-container {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+
+    .title {
+        flex: none;
+        width: 25%;
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        .sub-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            h3 {
+                font-size: 20px;
+                font: bold;
+            }
+
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .playlist {
+        flex: auto;
+        border: 1px solid blue;
+
+        width: 100%;
+        .sub-title {
+            color: rgba(128, 128, 128, 0.6);
+        }
+
+        .sub-playlist {
+            border: 1px solid red;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: rgba(128, 128, 128, 0.6);
+        }
+    }
+}

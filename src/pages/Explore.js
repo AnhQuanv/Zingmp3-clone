@@ -9,22 +9,22 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import _ from 'lodash'
 import { useDispatch } from 'react-redux';
 import { play, setCurSongId } from '../redux/action/music';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Explore = () => {
+    const [listSong, setListSong] = useState([]);
     const [listBanner, setListBanner] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
         const fetchHome = async () => {
             let res = await getHome();
-            // setListBanner(res.data.data.items[0].items);
-            setListBanner(res.data.data.items[3].items.all);
-            console.log("check res: ", res);
-            // console.log("check res: ", res.data.data.items[3].items.all[0].thumbnail);
-
-
+            setListBanner(res.data.data.items[0].items);
+            setListSong(res.data.data.items[3].items.all);
         };
 
         fetchHome();
@@ -46,10 +46,15 @@ const Explore = () => {
 
     const handleClickBanner = (song) => {
         console.log(song.encodeId)
-        if (!_.isEmpty(song?.encodeId)) {
-            console.log('oke')
-            dispatch(setCurSongId(song.encodeId));
-            dispatch(play(true));
+        // if (!_.isEmpty(song?.encodeId)) {
+        //     console.log('oke')
+        //     dispatch(setCurSongId(song.encodeId));
+        //     dispatch(play(true));
+        // } 
+
+        if (song?.type === 4) {
+            const albumPath = song?.link?.split('.')[0];
+            navigate(albumPath);
         }
     }
 
@@ -71,21 +76,21 @@ const Explore = () => {
                 {listBanner.length > 0 &&
                     listBanner?.map((banner, index) => (
                         <SwiperSlide key={index}>
-                            {/* <img src={banner.banner} alt='...' onClick={() => handleClickBanner(banner)} /> */}
-                            <img src={banner?.thumbnail} alt='...' onClick={() => handleClickBanner(banner)} />
+                            <img src={banner.banner} alt='...' onClick={() => handleClickBanner(banner)} />
+                            {/* <img src={banner?.thumbnail} alt='...' onClick={() => handleClickBanner(banner)} /> */}
 
                         </SwiperSlide>
                     ))
                 }
-                {/* {listBanner.length > 0 &&
+                {listBanner.length > 0 &&
                     listBanner?.map((banner, index) => (
                         <SwiperSlide key={index}>
                             <img src={banner.banner} alt='...' onClick={() => handleClickBanner(banner)} />
-                            <img src={banner?.all?.thumbnail} alt='...' onClick={() => handleClickBanner(banner)} />
+                            {/* <img src={banner?.all?.thumbnail} alt='...' onClick={() => handleClickBanner(banner)} /> */}
 
                         </SwiperSlide>
                     ))
-                } */}
+                }
             </Swiper>
         </div>
     );
