@@ -1,0 +1,57 @@
+.banner {
+    position: relative;
+
+    // Ẩn mũi tên theo mặc định
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff; // Màu sắc của mũi tên
+        font-size: 30px; // Kích thước mũi tên
+        width: 40px; // Chiều rộng
+        height: 40px; // Chiều cao
+        transition: transform 0.3s; // Hiệu ứng chuyển động
+        z-index: 10; // Đảm bảo mũi tên nằm trên các slide
+        opacity: 0; // Ẩn mũi tên
+        pointer-events: none; // Không cho phép tương tác khi ẩn
+    }
+
+    // Khi hover vào container .banner, hiện mũi tên
+    &:hover .swiper-button-next,
+    &:hover .swiper-button-prev {
+        opacity: 1; // Hiện mũi tên
+        pointer-events: auto; // Cho phép tương tác
+        background-color: rgba(204, 204, 204, 0.3); // Màu nền nhạt hơn (thay đổi alpha)
+        border-radius: 50%;
+        padding: 15px; // Tăng kích thước của background
+        transition: background-color 0.3s; // Hiệu ứng chuyển màu nền
+    }
+
+    .swiper-button-next {
+        right: 10px; // Vị trí bên phải
+    }
+
+    .swiper-button-prev {
+        left: 10px; // Vị trí bên trái
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 24px; // Kích thước biểu tượng
+    }
+
+    .swiper {
+        height: 250px;
+        width: 100%;
+        .swiper-slide {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

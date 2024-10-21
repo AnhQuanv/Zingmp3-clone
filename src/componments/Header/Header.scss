@@ -1,0 +1,44 @@
+.left-header {
+    display: flex;
+    gap: 20px;
+    width: 60%;
+    .arrow {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        span {
+            color: #818181;
+            font-size: 15px;
+        }
+    }
+
+    .box-search {
+        background-color: #f2f2f2;
+        display: flex;
+        border-radius: 15px;
+        width: 60%;
+        height: 40px;
+        .icon-search {
+            padding-left: 10px;
+            padding-right: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                font-size: 15px;
+                color: #818181;
+            }
+        }
+        .search {
+            border: none;
+            background-color: #f2f2f2;
+            border-radius: 15px;
+            width: 100%;
+
+            &:focus-visible {
+                border: none;
+            }
+        }
+    }
+}
