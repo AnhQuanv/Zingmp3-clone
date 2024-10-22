@@ -47,6 +47,7 @@ const Player = () => {
             audioRef.current.src = source;
 
             if (isPlaying) {
+                audioRef.current.load();
                 audioRef.current.play(); // Phát nhạc nếu trạng thái isPlaying là true
             }
         }

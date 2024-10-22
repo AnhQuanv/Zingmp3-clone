@@ -1,0 +1,62 @@
+.song-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    cursor: pointer;
+
+    &:hover {
+        background: #dde4e4;
+    }
+
+    .title-song {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1 1 0%; /* Chiếm khoảng trống còn lại */
+
+        img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .name-song {
+                font-size: 12px;
+                font-weight: 700;
+                font: bold;
+                color: black;
+            }
+
+            .name-artist {
+                font-size: 10px;
+                color: #00000099; /* Màu xám gần như đen */
+                font-weight: 500; /* Chữ in đậm hơn */
+            }
+        }
+    }
+
+    .name-album {
+        flex: 1 1 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+
+    .time {
+        flex: 1 1 0%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 10px;
+    }
+}

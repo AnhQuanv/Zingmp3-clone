@@ -4,6 +4,7 @@ import { getDetailPlayList } from '../apis/apiServices';
 import './Album.scss'
 import moment from 'moment';
 import AlbumSong from '../componments/AlbumSong';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 const Album = () => {
     const { title, plid } = useParams();
@@ -12,8 +13,6 @@ const Album = () => {
     useEffect(() => {
         const fetchDetailPlayList = async () => {
             const res = await getDetailPlayList(plid);
-            console.log(res);
-            console.log(res.data.data.thumbnail);
             if (res?.data.err === 0) {
                 setPlayListData(res.data?.data);
             }
@@ -35,19 +34,21 @@ const Album = () => {
                     </span>
                     <span>{playListData?.artistsNames}</span>
                     <span>{`${Math.round(playListData?.like / 1000)}K người yêu thích`}</span>
-
                 </div>
             </div>
-            <div className='playlist'>
-                <span>
-                    <span className='sub-title'>Lời tựa </span>
-                    <span>{playListData?.sortDescription}</span>
-                </span>
-                <div className='sub-playlist'>
-                    <AlbumSong />
+            <Scrollbar style={{ width: '100%', height: '80%' }}>
+                <div className='playlist'>
+                    <span>
+                        <span className='sub-title'>Lời tựa </span>
+                        <span>{playListData?.sortDescription}</span>
+                    </span>
+                    <div className='sub-playlist'>
+                        <AlbumSong listSong={playListData?.song?.items} totalDuration={playListData?.song?.totalDuration} />
+                    </div>
                 </div>
-            </div>
+            </Scrollbar>
         </div>
+
     );
 };
 
