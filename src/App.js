@@ -13,6 +13,7 @@ function App() {
         <Route path="explore" element={<Explore />} />
         <Route path="library" element={<Library />} />
         <Route path="album/:title/:plid" element={<Album />} />
+        <Route path="playlist/:title/:plid" element={<Album />} />
 
       </Route>
     </Routes>

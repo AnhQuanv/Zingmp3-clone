@@ -48,8 +48,9 @@
         flex: 1 1 0%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         font-size: 10px;
+        padding-left: 98px;
     }
 
     .time {

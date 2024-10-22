@@ -3,7 +3,7 @@
     flex: auto;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px; // Giảm khoảng cách giữa hình ảnh và tiêu đề
     padding-left: 20px;
 
     .img-cd {
@@ -16,19 +16,20 @@
     .title {
         display: flex;
         flex-direction: column;
+        gap: 2px; // Giảm khoảng cách giữa tiêu đề bài hát và tên nghệ sĩ
 
         .song-title {
             font-weight: bold;
         }
 
         .artists-names {
-            // font-style: italic;
             font-size: 14px;
         }
     }
+
     .sub-icon {
         display: flex;
-        gap: 20px;
+        gap: 10px; // Giảm khoảng cách giữa các icon
         span {
             font-size: 20px;
         }
@@ -42,10 +43,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 10px; // Tăng khoảng cách giữa các thành phần của player
+
     .sub-play {
         display: flex;
-        gap: 32px;
+        gap: 16px; // Điều chỉnh khoảng cách giữa các biểu tượng
         align-items: center;
         justify-content: center;
 
@@ -65,8 +67,39 @@
             }
         }
     }
+
+    .process-bar-box {
+        width: 100%; // Đảm bảo chiều rộng đầy đủ
+        cursor: pointer; // Thêm hiệu ứng chuột
+        display: flex;
+        span {
+            font-size: 10px;
+        }
+        .down {
+            width: 75%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: auto;
+            position: relative;
+            border-radius: 5px;
+
+            .up {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: #0e8080;
+                border-radius: 5px;
+            }
+        }
+    }
 }
+
 .volume {
     width: 30%;
     flex: auto;
+    text-align: center; // Căn giữa nội dung volume
+    font-size: 16px; // Cỡ chữ cho volume
 }
